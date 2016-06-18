@@ -1,0 +1,10 @@
+#!/bin/bash
+start="$(date +%s)"
+startNano=".$(date +%N)"
+start="$(python -c "print ($start+float(str($startNano)))")"
+$1
+end="$(date +%s)"
+endNano=".$(date +%N)"
+end="$(python -c "print ($end+float(str($endNano)))")"
+length="$(python -c "print ($end-$start)")"
+echo "$length"
